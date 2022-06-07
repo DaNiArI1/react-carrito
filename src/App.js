@@ -1,10 +1,12 @@
 import Header from "./Header";
-import Nav from "./Nav";
+import Nav from "./components/NavBar";
 
 const App = () => {
     return (
         <>
-            <Header test="Hola" />
+            <Header greeting="Hola"
+            edad={31}
+            usuarios={"Daniel"} />
             <footer>
                 <Nav/>
             </footer>
