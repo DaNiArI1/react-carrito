@@ -6,6 +6,7 @@ const Nav = ({ inHeader, cosasParaMostrar, laClase }) => {
         <a href="#">{inHeader ? "link" : "instagram"}</a>
         <a href="#">{inHeader ? "link" : "linkedin"}</a>
       </nav>
+      
     )
   }
   
