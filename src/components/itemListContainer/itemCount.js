@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Swal from "sweetalert2"
 
 
 const ItemCount = ({ stock, initial, onAdd }) => {
@@ -6,8 +7,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const [contador, setContador] = useState(initial)
 
   useEffect(()=>{
-    
-    //console.log("Pidiendo usuarios...")
 
   },[])
 
@@ -21,12 +20,17 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   const confirmarContador = () => {
     if (contador >= 1 && contador <= 5) {
-        alert ("Se ha agregado " + contador + " producto(s) al carrito")
+        Swal.fire({
+            title: "Compra Realizada",
+            text: "Agregaste " + contador + " productos al carrito",
+            icon: "success",
+            confirmButtonText: "Ok",})
     } else if (contador > 5) {
-        alert ("No hay stock suficiente")
-    }
-    else {
-      alert("Error")
+       Swal.fire({
+           title: "Error",
+           text: "No puedes agregar mas de 5 productos al carrito",
+           icon: "error",
+           confirmButtonText: "Ok",})
     }
    }
 
