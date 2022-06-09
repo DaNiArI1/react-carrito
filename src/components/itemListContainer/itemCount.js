@@ -20,7 +20,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   }
 
   const confirmarContador = () => {
-    //onAdd(contador) ?
+    if (contador >= 1 && contador <= 5) {
+        alert ("Se ha agregado " + contador + " producto(s) al carrito")
+    } else if (contador > 5) {
+        alert ("No hay stock suficiente")
+    }
+    else {
+      alert("Error")
+    }
    }
 
   return (
