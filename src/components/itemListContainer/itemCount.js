@@ -16,7 +16,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   }
 
   const bajarContador = () => {
-    setContador("Horacio")
+    setContador(contador - 1)
   }
 
   const confirmarContador = () => {
@@ -26,9 +26,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   return (
     <div>
       <p>El contador va : {contador}</p>
-      <button onClick={aumentarContador}>aumentar</button>
-      <button onClick={bajarContador}>disminuir</button>
-      <button onClick={confirmarContador}>confirmar</button>
+      <button onClick={aumentarContador}>Aumentar</button>
+      <button onClick={bajarContador}>Disminuir</button>
+      <button onClick={confirmarContador}>Confirmar</button>
     </div>
   )
 }
