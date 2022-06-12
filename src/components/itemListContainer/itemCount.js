@@ -4,43 +4,47 @@ import Swal from "sweetalert2"
 
 const ItemCount = ({ stock, initial, onAdd }) => {
 
-  const [contador, setContador] = useState(initial)
+  const [valorInicial, setCantidad] = useState(initial)
+  const [stockArticulos, setStock] = useState(stock)
 
-  useEffect(()=>{
+  return (
+    <div className='centerCount'>
 
-  },[])
+        <h2>Cantidad: {valorInicial}</h2>
+      <div className='agregarItems'>
 
-  const aumentarContador = () => {
-    setContador(contador + 1)
-  }
+        {/* BOTON RESTAR */}
+        <button type='button' className='btnCard' onClick={() => 
+        {valorInicial > 1 && setCantidad(valorInicial - 1)}}>-</button>
 
-  const bajarContador = () => {
-    setContador(contador - 1)
-  }
+         {/* Input indicador de cantidas seleccionada */}
+        <input className='inputCard' value={valorInicial} />
 
-  const confirmarContador = () => {
-    if (contador >= 1 && contador <= 5) {
+      {/* BOTON SUMAR */}
+         <button type='button' className='btnCard' onClick={() => 
+          {valorInicial < stock && setCantidad(valorInicial + 1)}}>+</button>
+        </div>
+
+        {/* Boton agregar al carrito */}
+            <button type='button' className='btnAddCar' onClick={addToCart}>Agregar al carrito</button>
+    </div>
+  )
+
+  function addToCart(){
+    if (stockArticulos - valorInicial >= 0){
         Swal.fire({
             title: "Compra Realizada",
-            text: "Agregaste " + contador + " productos al carrito",
+            text: "Agregaste " + valorInicial + " productos al carrito",
             icon: "success",
             confirmButtonText: "Ok",})
-    } else if (contador > 5) {
-       Swal.fire({
+        setStock(stockArticulos - valorInicial)
+    }else if(valorInicial > stockArticulos){
+        Swal.fire({
            title: "Error",
-           text: "No puedes agregar mas de 5 productos al carrito",
+           text: "No puedes agregar mas de " + 5 + " productos al carrito",
            icon: "error",
            confirmButtonText: "Ok",})
     }
-   }
-
-  return (
-    <div>
-      <p>El contador va : {contador}</p>
-      <button onClick={aumentarContador}>Aumentar</button>
-      <button onClick={bajarContador}>Disminuir</button>
-      <button onClick={confirmarContador}>Confirmar</button>
-    </div>
-  )
+    }
 }
 export default ItemCount
