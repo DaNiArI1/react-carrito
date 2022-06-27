@@ -1,44 +1,23 @@
 import { useEffect, useState } from "react"
+import customFetch from "../utils/customFetch"
 import ItemCount from "./itemCount"
+import productos from "../utils/productos"
+import ItemList from "./ItemList"
 
 
-const ItemListContainer = ({ greeting }) => {
-
+function ItemListContainer () {
   const [items, setItems] = useState([])
 
-  useEffect(()=>{
-    
-    const MockAsync = new Promise((res)=>{
-      setTimeout(()=>{
-        console.log("pidiendo Productos...")
-        const productosDeDB = ["Producto 1", "Producto 2", "Producto 3"]
-        res(productosDeDB)
-      },2000)
-    })
+  useEffect(() => {
+    customFetch(3000, productos)
+    .then(resultado => setItems(resultado))
+  }, [items])
 
-    MockAsync.then(productos => {
-      setItems(productos)
-    })
-
-  },[])
-
-  const onAdd = () => {  }
-
-  if(items.length > 0 ){
-    return (
-      <div>
-        <h2>{greeting}</h2>
-        <ItemCount stock={5} onAdd={onAdd} initial={0} />
-      </div>
-    )
-  }else{
-    return (
-      <div>
-        <h2>{greeting}</h2>
-        <p>Cargando...</p>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <ItemList products= {items}/>
+    </div>
+  )
 }
 
 export default ItemListContainer

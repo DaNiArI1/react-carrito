@@ -4,10 +4,10 @@ const Nav = ({ inHeader, cosasParaMostrar, laClase }) => {
 
     return (
       <nav className={laClase}>
-        <a href="#">{inHeader ? "link" : "Twitter"}</a>
+        <a href="#">{inHeader ? "Inicio " : "Twitter"}</a>
+        <a href="#">{inHeader ? "Compras " : "instagram"}</a>
+        <a href="#">{inHeader ? "Nuestra Empresa " : "linkedin"}</a>
         <CartWidget></CartWidget>
-        <a href="#">{inHeader ? "link" : "instagram"}</a>
-        <a href="#">{inHeader ? "link" : "linkedin"}</a>
       </nav>
       
     )

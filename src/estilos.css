@@ -10,6 +10,14 @@
     text-decoration: none;
     list-style-type: none;
   }
+
+  header {
+    /* Estilos del header */
+    background-color: rgb(3, 117, 3);
+    padding: 20px;
+    text-align: center;
+
+  }
   
   body {
     margin: 0;
