@@ -12,7 +12,7 @@ const App = () => {
             usuarios={"Daniel"} />
             <Container fluid>
             <ItemListContainer></ItemListContainer>
-            <ItemDetailContainer/>
+            <ItemDetailContainer></ItemDetailContainer>
             </Container>
             <footer>
                 <Nav/>
