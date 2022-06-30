@@ -25,4 +25,21 @@ const productos = [
     }
 ]
 
+const product =  {
+    id: 1,
+    name: "Producto 1",
+    precio: 100,
+    stock: 5,
+    descripcion: "Descripcion del producto 1",
+    image : "https://picsum.photos/200/300?random=1"
+}
+
 export default productos
+
+export const traerProduct = () => {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            resolve(product)
+        }, 2000)
+    })
+}

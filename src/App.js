@@ -1,7 +1,8 @@
 import Header from "./Header";
 import Nav from "./components/NavBar";
 import ItemListContainer from "./components/itemListContainer/ItemListContainer";
-import { Container } from "react-bootstrap";
+import { Container } from "react-bootstrap"
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 const App = () => {
     return (
@@ -11,6 +12,7 @@ const App = () => {
             usuarios={"Daniel"} />
             <Container fluid>
             <ItemListContainer></ItemListContainer>
+            <ItemDetailContainer/>
             </Container>
             <footer>
                 <Nav/>
